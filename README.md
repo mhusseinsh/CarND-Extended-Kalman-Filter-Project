@@ -4,6 +4,7 @@
 [dataset1]: ./output_images/dataset1.png "Dataset 1"
 [dataset2]: ./output_images/dataset2.png "Dataset 2"
 [simulation]: ./output_images/simulation.gif "Simulation"
+[dataset]: ./output_images/dataset.png "Dataset"
 # **Extended Kalman Filter** 
 
 ## Report
@@ -76,6 +77,20 @@ The simulator provides two datasets to choose from
 
 * **Dataset 1**: The car begins moving to the right forming an infinity shape, and the order of the measurements begin with a RADAR measurement sent first followed by LiDAR measurement and so on.
 * **Dataset 2**: The car begins moving to the left forming an infinity shape, and the order of the measurements begin with a LiDar measurement sent first followed by RADAR measurement and so on.
+
+Here is a screenshot of how the data look like:
+
+![alt text][dataset]
+
+The simulator will be using this data file, and feed main.cpp values from it one line at a time.
+
+Each row represents a sensor measurement where the first column tells you if the measurement comes from radar (R) or lidar (L).
+
+For a row containing radar data, the columns are: **sensor_type, rho_measured, phi_measured, rhodot_measured, timestamp, x_groundtruth, y_groundtruth, vx_groundtruth, vy_groundtruth, yaw_groundtruth, yawrate_groundtruth2.**
+
+For a row containing lidar data, the columns are: 2**sensor_type, x_measured, y_measured, timestamp, x_groundtruth, y_groundtruth, vx_groundtruth, vy_groundtruth, yaw_groundtruth, yawrate_groundtruth.2**
+
+Whereas radar has three measurements **(rho, phi, rhodot)**, lidar has two measurements **(x, y)**.
 
 ## Protocol
 Below is the main protcol that main.cpp uses for uWebSocketIO in communicating with the simulator.
